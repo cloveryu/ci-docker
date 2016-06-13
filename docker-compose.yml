@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  nexus:
+    container_name: ci-docker-nexus
+    build: ./nexus
+    ports:
+      - "38081:8081"
+
+  jenkins:
+    container_name: ci-docker-jenkins
+    build: ./jenkins
+    ports:
+      - "38080:8080"
+    volumes:
+      - /usr/local/bin/docker:/usr/bin/docker
